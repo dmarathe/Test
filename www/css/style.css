@@ -1,1 +1,19 @@
 /* Empty. Add your own CSS if you like */
+.center{
+  margin: auto;
+  display: block;
+}
+
+.right{
+  float: right;
+}
+
+.under{
+  border-bottom: 1px solid black;
+  display: inline-block;
+}
+
+.is-disabled{
+    opacity: .5;
+    pointer-events: none;
+}

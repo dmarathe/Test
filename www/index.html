@@ -37,10 +37,35 @@
   <body ng-app="starter">
 
     <ion-pane ng-controller="optionController">
-      <ion-header-bar class="bar-stable">
+       <ion-header-bar align-title="center" >
 
-      </ion-header-bar>
-      <ion-content>
+          <h4 class="center">
+            {{ options.name}}
+          </h4>
+          <div ng-click="options.complete()" >
+            <button >
+              {{ total}}
+            </button>
+          </div>
+       </ion-header-bar>
+       <ion-content>
+        <div class="list">
+          <div ng-repeat="option in options.options">
+
+          <!-- Option name -->
+                <div class="h4 under"> {{ option.name}} </div>
+          <!-- Option Items -->
+              <div ng-repeat="item in option.items" ng-click="add(option, item)" ng-class="">
+
+                  <span>{{ item.name }}</span>
+                  <span class="right">+ {{ item.price}}</span>
+                  <div ng-show="item.count" ng-click="remove(option, item, $event)">
+                    <div> {{item.count}} </div>
+                  </div>
+
+               </div>
+          </div>
+       </div>
       </ion-content>
     </ion-pane>
   </body>

@@ -7,7 +7,7 @@ angular.module('ricepo.service.optionService', [])
                               {
                                 "name": "Add On",
                                 "min": 1,
-                                "max": 1,
+                                "max": 0,
                                 "items": [
                                   {
                                     "name": "bubble",
@@ -34,7 +34,7 @@ angular.module('ricepo.service.optionService', [])
                                     {
                                        "name": "green milk tea",
                                       "price": 0,
-                                      "avilable": true
+                                      "available": true
                                     }
                                   ]
                               },
@@ -46,12 +46,12 @@ angular.module('ricepo.service.optionService', [])
                                     {
                                       "name": "Large",
                                       "price": 0,
-                                      "avilable": true
+                                      "available": true
                                     },
                                     {
                                       "name": "Medium",
                                       "price": 0,
-                                      "avilable": true
+                                      "available": false
                                     }
                                   ]
                               }
