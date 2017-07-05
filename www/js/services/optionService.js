@@ -6,7 +6,7 @@ angular.module('ricepo.service.optionService', [])
           "options": [
                               {
                                 "name": "Add On",
-                                "min": 1,
+                                "min": 0,
                                 "max": 0,
                                 "items": [
                                   {
@@ -29,7 +29,7 @@ angular.module('ricepo.service.optionService', [])
                                     {
                                       "name": "milk tea",
                                       "price": 0,
-                                      "avilable": true
+                                      "available": false
                                     },
                                     {
                                        "name": "green milk tea",
@@ -45,16 +45,56 @@ angular.module('ricepo.service.optionService', [])
                                 "items": [
                                     {
                                       "name": "Large",
-                                      "price": 0,
+                                      "price": 20,
                                       "available": true
                                     },
                                     {
                                       "name": "Medium",
-                                      "price": 0,
-                                      "available": false
+                                      "price": 10,
+                                      "available": true
                                     }
                                   ]
-                              }
+                              },
+                              {
+                                "name": "Temp",
+                                "min": 3,
+                                "max": 3,
+                                "items": [
+                                   {
+                                     "name": "Cold",
+                                     "price": 0,
+                                     "available": true
+                                   },
+                                   {
+                                     "name": "Hot",
+                                     "price": 25,
+                                     "available": true
+                                   },
+                                   {
+                                     "name": "Extra Hot",
+                                     "price": 50,
+                                     "available": true
+                                   }
+                                 ]
+                              },
+                              // corner case
+                              // {
+                              //   "name": "Add",
+                              //   "min": 1,
+                              //   "max": 0,
+                              //   "items": [
+                              //     {
+                              //       "name": "bubble",
+                              //       "price": 50,
+                              //       "available": false
+                              //     },
+                              //     {
+                              //       "name": "pudding",
+                              //       "price": 50,
+                              //       "available": false
+                              //     }
+                              //   ]
+                              // }
                       ]
       }
       return {
