@@ -17,7 +17,8 @@
     </script>-->
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="css/option.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -25,45 +26,58 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/lodash/dist/lodash.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
+
+    <!-- services -->
     <script src="js/services/optionService.js"></script>
+
+    <!-- controller -->
     <script src="js/controller/optionController.js"></script>
+
+    <!-- filters -->
+    <script src="js/filter/filter.js"></script>
+
   </head>
   <body ng-app="starter">
 
     <ion-pane ng-controller="optionController">
-       <ion-header-bar align-title="center" >
-
+       <ion-header-bar>
           <h4 class="center">
             {{ options.name}}
           </h4>
-          <div ng-click="options.complete()" >
-            <button >
-              {{ total}}
+          <div ng-class="{'is-disabled': disabledCheckout}" ng-click="complete()">
+            <button class="checkbutton">
+              ${{total | d}}
             </button>
           </div>
        </ion-header-bar>
        <ion-content>
+        <div ng-show="disabledCheckout" class="warning">Sorry, all required contents are not available at this point. Please, try ordering after some time.</div>
         <div class="list">
-          <div ng-repeat="option in options.options">
+          <div ng-repeat="option in options.options" class="text-center">
 
           <!-- Option name -->
-                <div class="h4 under"> {{ option.name}} </div>
+              <div class="h4 under"> {{ option.name}} </div>
           <!-- Option Items -->
-              <div ng-repeat="item in option.items" ng-click="add(option, item)" ng-class="">
-
+              <div ng-repeat="item in option.items" class="text-left">
+                <div ng-class="{'is-disabled': !item.available}" ng-click="item.available && add(option, item)" >
                   <span>{{ item.name }}</span>
-                  <span class="right">+ {{ item.price}}</span>
-                  <div ng-show="item.count" ng-click="remove(option, item, $event)">
-                    <div> {{item.count}} </div>
+                  <div class="right bold">
+                    <span>${{item.price | d}}</span>
+                    <span ng-show="item.count">
+                      X {{item.count}}
+                      <span ng-show="item.count" class="ion-ios-minus-outline action" ng-click="remove(option, item, $event)"></span>
+                    </span>
                   </div>
-
+                </div>
                </div>
+
           </div>
        </div>
       </ion-content>
