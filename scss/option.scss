@@ -1,0 +1,55 @@
+
+.list {
+  width: 80%;
+  margin: auto;
+  text-transform: capitalize;
+
+  .under {
+    border-bottom: 1px solid black;
+    display: inline-block;
+  }
+
+  .is-disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
+
+  .action {
+    padding: 0 5px;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .text-left {
+    text-align: left;
+  }
+
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+  }
+
+  .bold{
+    font-weight: bold;
+  }
+}
+
+.center {
+  margin: auto;
+}
+
+.checkbutton {
+  background: none;
+  border: none;
+}
+
+.warning {
+  color: red;
+  margin: 5px 0;
+  padding: 0 10px;
+}
