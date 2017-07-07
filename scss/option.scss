@@ -12,16 +12,16 @@ $option-color : #ffcccc;
   transition:$transition;
 }
 
-@mixin calc($property, $expression) {
-  #{$property}: -moz-calc(#{$expression});
-  #{$property}: -webkit-calc(#{$expression});
-  #{$property}: calc(#{$expression});
+@mixin calc($expression) {
+  width: -moz-calc(#{$expression});
+  width: -webkit-calc(#{$expression});
+  width: calc(#{$expression});
 }
 .list {
   //margin: auto;
   padding: 16px 35px;
   text-transform: capitalize;
-  min-width: 50px;
+  //min-width: 50px;
 
   .under {
     border-bottom: 1px solid black;
@@ -47,50 +47,53 @@ $option-color : #ffcccc;
   .optionItem {
     padding: 16px;
     font-size: 16px;
+    position: relative;
     cursor: pointer;
   }
   .food {
     .itemName {
       display: inline-block;
       width: 100%;
-      @include calc( width, '100% - 75px')
+      @include calc('100% - 75px')
     }
     .right {
       float: right;
       position: relative;
       width: 65px;
-
-        .itemCount {
-          display: inline-block;
-          width: 100%;
-          height: 50px;
-          top: -3px;
-          //background: red;
-          position: absolute;
-
-            .countButton {
-              width: 25px;
-              height: 25px;
-              margin-left: 10px;
-              text-align: center;
-              border-radius: 50%;
-              background: $option-color;
-              @include transition(all linear 0.2s);
-              line-height: 1.5;
-            }
-
-            &.ng-hide {
-              //right: -100%;
-              @include transform(20px);
-              @include transition(all linear 0.2s);
-            }
-
-          }
+        //
+        // .itemCount {
+        //   display: inline-block;
+        //   width: 100%;
+        //   bottom: -15px;
+        //   top: -16px;
+        //   padding: 14px;
+        //   position: absolute;
+        //
+        //     .countButton {
+        //       width: 25px;
+        //       height: 25px;
+        //       margin-left: 10px;
+        //       text-align: center;
+        //       border-radius: 50%;
+        //       background: $option-color;
+        //       @include transition(all linear 0.2s);
+        //       line-height: 1.5;
+        //     }
+        //
+        //     &.ng-hide {
+        //       //right: -100%;
+        //       @include transform(20px);
+        //       @include transition(all linear 0.2s);
+        //     }
+        //
+        //   }
 
       }
+
+
       &.shift {
           .itemName {
-            @include calc( width, '100% - 100px')
+            @include calc('100% - 100px')
           }
 
           div.hideit {
@@ -101,6 +104,36 @@ $option-color : #ffcccc;
       }
 
 
+
+  }
+  .itemCount {
+    display: inline-block;
+    width: 50px;
+    padding: 14px;
+    position: absolute;
+    right:0;
+    top: 0;
+    bottom: 0px;
+        .countButton {
+          width: 25px;
+          height: 25px;
+          margin-left: 10px;
+          text-align: center;
+          border-radius: 50%;
+          background: $option-color;
+          @include transition(all linear 0.2s);
+          line-height: 1.5;
+        }
+
+        &.ng-hide {
+          //right: -100%;
+          @include transform(20px);
+          @include transition(all linear 0.2s);
+        }
+        &.shift {
+          @include transform(-20px) ;
+          @include transition(all linear 0.2s);
+        }
   }
 
   .left {
