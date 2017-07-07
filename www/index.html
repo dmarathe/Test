@@ -47,7 +47,7 @@
   <body ng-app="starter">
 
     <ion-pane ng-controller="optionController">
-       <ion-header-bar>
+       <ion-header-bar class="menuHeader">
           <h4 class="center">
             {{ options.name}}
           </h4>
@@ -65,15 +65,16 @@
           <!-- Option name -->
               <div class="h4 under"> {{ option.name}} </div>
           <!-- Option Items -->
-              <div ng-repeat="item in option.items" class="text-left">
-                <div ng-class="{'is-disabled': !item.available}" ng-click="item.available && add(option, item)" >
-                  <span>{{ item.name }}</span>
-                  <div class="right bold">
+              <div ng-repeat="item in option.items" class="text-left optionItem" ng-click="item.available && add(option, item)">
+                <div class="food" ng-class="{'is-disabled': !item.available, 'shift': item.count}"  >
+                  <span class="itemName">{{ item.name }}</span>
+                  <div class="hideit right bold">
                     <span>${{item.price | d}}</span>
-                    <span ng-show="item.count">
-                      X {{item.count}}
-                      <span ng-show="item.count" class="ion-ios-minus-outline action" ng-click="remove(option, item, $event)"></span>
-                    </span>
+                    <div class="itemCount" ng-click="remove(option, item, $event)" ng-show="item.count">
+                      <div class="countButton" ng-show="item.count" >
+                        <span>{{item.count}}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
                </div>

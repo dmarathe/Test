@@ -30,7 +30,7 @@ angular.module('ricepo.controllers.option', [])
         option.selectedItems.push(item);
         $scope.total += item.price;
         // check if minimun items are added if so=> remove first item from list
-        if((option.max !== 0) && (option.selectedItems.length > option.max)){
+        if(option.max  && (option.selectedItems.length > option.max)){
           option.selectedItems[0].count--;
           $scope.total -= option.selectedItems[0].price;
           option.selectedItems.splice(0,1);
@@ -39,7 +39,7 @@ angular.module('ricepo.controllers.option', [])
 
       //remove requested item from list.
       $scope.remove = function(option,item,$event){
-        item.count--;
+        item.count= (item.count || 1) - 1;
         $scope.total -= item.price;
         //remove recently added element from an array
         option.selectedItems.splice(_.lastIndexOf(option.selectedItems, item), 1);

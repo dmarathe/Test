@@ -10,7 +10,7 @@ angular.module('ricepo.service.optionService', [])
                                 "max": 0,
                                 "items": [
                                   {
-                                    "name": "bubble",
+                                    "name": "bubblebubblebubblebubblebubblebubblebubblebubblebubblebubblebubblebubblebubble",
                                     "price": 50,
                                     "available": true
                                   },
