@@ -70,13 +70,14 @@
                   <span class="itemName">{{ item.name }}</span>
                   <div class="hideit right bold">
                     <span>${{item.price | d}}</span>
-                    <div class="itemCount" ng-click="remove(option, item, $event)" ng-show="item.count">
+                  </div>
+                </div>
+                    <div class="itemCount" ng-click="remove(option, item, $event)" ng-show="item.count" ng-class="{'shift': item.count}">
                       <div class="countButton" ng-show="item.count" >
                         <span>{{item.count}}</span>
                       </div>
                     </div>
-                  </div>
-                </div>
+
                </div>
 
           </div>
